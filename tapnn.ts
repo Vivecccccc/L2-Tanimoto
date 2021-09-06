@@ -2,6 +2,7 @@ const sim = 0.95;
 const cosThres = 2 * sim / (1 + sim);
 const alpha = (1 / sim) * ((1 + (1 / sim)) + Math.sqrt((1 + (1 / 0.95)) ** 2 - 4));
 
+// input argument is a map with unique string keys and their corresponding numeric vectors of feature, whose dimension requires no same length.
 function tapnn(infoMap: Map<string, number[]>) {
   const normMap: Map<string, number> = new Map([...infoMap].map(([k, v]) => {
     return [k, l2Norm(v)];
